@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { t, changeLanguage } from "i18next";
+
+changeLanguage("de");
+
+// Simulate dynamic content
+const posts = [
+    { id: 1, title: "First Post", excerpt: "This is the first blog post" },
+    { id: 2, title: "Second Post", excerpt: "This is the second blog post" },
+    { id: 3, title: "Third Post", excerpt: "This is the third blog post" },
+];
+export const prerender = false;
+---
+
+<Layout title={`${t('navigation.blog')} - ${t('common.meta.title')}`}>
+  <h1>{t('navigation.blog')}</h1>
+  
+  <div class="posts">
+    {posts.map((post) => (
+      <article>
+        <h2>{post.title}</h2>
+        <p>{post.excerpt}</p>
+        <a href={`/blog/${post.id}`}>Read more</a>
+      </article>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .posts {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  article {
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  
+  article h2 {
+    margin-top: 0;
+  }
+</style>

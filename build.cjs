@@ -18,15 +18,15 @@ require("esbuild")
     minify: true,
     format: "esm",
     platform: "node",
-    target: "node14",
+    target: "node18",
     banner: {
       js: `
-      import module2 from 'module';
-      import path2 from 'path';
-      import * as url2 from 'url';
-      const require = module2.createRequire(import.meta.url);
-      const __filename = url2.fileURLToPath(import.meta.url);
-      const __dirname = path2.dirname(__filename);
+      import { createRequire } from 'module';
+      import { fileURLToPath } from 'url';
+      import { dirname } from 'path';
+      const require = createRequire(import.meta.url);
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = dirname(__filename);
       `,
     },
     sourcemap: false,

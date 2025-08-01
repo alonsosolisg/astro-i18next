@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Astro i18next con Vercel",
+    "description": "Un sitio Astro multilingüe desplegado en Vercel"
+  },
+  "footer": {
+    "text": "Construido con Astro y astro-i18next",
+    "deployed": "Desplegado en Vercel"
+  }
+}

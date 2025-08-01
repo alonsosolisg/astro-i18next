@@ -60,7 +60,7 @@ export const flattenRoutes = (
         [
           ...translatedPrevious,
           Object.prototype.hasOwnProperty.call(routes[i], "index")
-            ? routes[i]["index"]
+            ? ((routes[i] as Routes)["index"] as string)
             : i,
         ],
         result
@@ -78,7 +78,7 @@ export const flattenRoutes = (
         result[key] = value;
       } else {
         key += "/" + i;
-        value += "/" + routes[i];
+        value += "/" + (routes[i] as string);
 
         result[key] = value;
       }

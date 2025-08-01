@@ -6,7 +6,8 @@ import ts from "typescript";
  * @returns
  */
 export const transformer: ts.TransformerFactory<ts.SourceFile> =
-  (context: ts.TransformationContext) => (rootNode) => {
+  (context: ts.TransformationContext) =>
+  (rootNode: ts.SourceFile): ts.SourceFile => {
     const { factory, getCompilerOptions } = context;
     let doesI18nextImportExist = false;
 
@@ -89,7 +90,7 @@ export const transformer: ts.TransformerFactory<ts.SourceFile> =
       return ts.visitEachChild(node, visit, context);
     }
 
-    let visitedNode = ts.visitNode(rootNode, visit);
+    let visitedNode = ts.visitNode(rootNode, visit) as ts.SourceFile;
 
     const statements = [...visitedNode.statements];
 

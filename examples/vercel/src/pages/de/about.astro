@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { t, changeLanguage } from "i18next";
+
+changeLanguage("de");
+
+// This page will be cached with ISR
+export const prerender = false;
+---
+
+<Layout title={`${t('navigation.about')} - ${t('common.meta.title')}`}>
+  <h1>{t('navigation.about')}</h1>
+  
+  <p>This is the about page. It demonstrates ISR (Incremental Static Regeneration) on Vercel.</p>
+  
+  <p>Current time: {new Date().toLocaleString(Astro.currentLocale)}</p>
+  
+  <p>This page will be cached and regenerated periodically thanks to Vercel's ISR feature.</p>
+</Layout>

@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { t, changeLanguage } from "i18next";
+
+changeLanguage("fr");
+---
+
+<Layout title={t('common.meta.title')}>
+  <h1>{t('welcome')}</h1>
+  <p>{t('description')}</p>
+  
+  <section>
+    <h2>{t('features.title')}</h2>
+    <ul>
+      <li>{t('features.ssr')}</li>
+      <li>{t('features.isr')}</li>
+      <li>{t('features.i18n')}</li>
+      <li>{t('features.vercel')}</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h3>Current Locale: {Astro.currentLocale}</h3>
+    <p>This page demonstrates server-side rendering with astro-i18next on Vercel.</p>
+  </section>
+</Layout>

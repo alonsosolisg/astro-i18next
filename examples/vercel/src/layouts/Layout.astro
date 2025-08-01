@@ -1,0 +1,120 @@
+---
+import { t } from "i18next";
+import { localizePath } from "astro-i18next";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const currentLocale = Astro.currentLocale;
+const locales = ["en", "fr", "es", "de"];
+---
+
+<!DOCTYPE html>
+<html lang={currentLocale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description || t('common.meta.description')} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href={localizePath('', currentLocale)}>{t('navigation.home')}</a></li>
+          <li><a href={localizePath('about', currentLocale)}>{t('navigation.about')}</a></li>
+          <li><a href={localizePath('blog', currentLocale)}>{t('navigation.blog')}</a></li>
+          <li><a href={localizePath('contact', currentLocale)}>{t('navigation.contact')}</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        {locales.map((locale) => (
+          <a 
+            href={localizePath('', locale)}
+            class={locale === currentLocale ? 'active' : ''}
+          >
+            {locale.toUpperCase()}
+          </a>
+        ))}
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>{t('common.footer.text')}</p>
+      <p>{t('common.footer.deployed')}</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  nav a:hover {
+    color: #007acc;
+  }
+  
+  .language-switcher {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .language-switcher a {
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+  
+  .language-switcher a.active {
+    background: #007acc;
+    color: white;
+    border-color: #007acc;
+  }
+  
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: #666;
+  }
+</style>

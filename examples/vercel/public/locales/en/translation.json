@@ -1,0 +1,24 @@
+{
+  "welcome": "Welcome to our multilingual site",
+  "description": "This is a demo of astro-i18next with Vercel adapter",
+  "features": {
+    "title": "Features",
+    "ssr": "Server-Side Rendering",
+    "isr": "Incremental Static Regeneration",
+    "i18n": "Internationalization",
+    "vercel": "Vercel Deployment"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

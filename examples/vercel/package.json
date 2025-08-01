@@ -1,0 +1,29 @@
+{
+  "name": "@examples/vercel",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=21.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "i18n:generate": "astro-i18next generate",
+    "vercel-build": "astro build"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.3.2",
+    "@astrojs/vercel": "^8.2.3",
+    "astro": "^5.0.0",
+    "astro-i18next": "github:alonsosolisg/astro-i18next#main",
+    "cookie": "^0.6.0",
+    "i18next": "^22.4.10",
+    "path-to-regexp": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

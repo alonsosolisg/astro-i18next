@@ -1,0 +1,24 @@
+{
+  "welcome": "Bienvenue sur notre site multilingue",
+  "description": "Ceci est une démo d'astro-i18next avec l'adaptateur Vercel",
+  "features": {
+    "title": "Fonctionnalités",
+    "ssr": "Rendu côté serveur",
+    "isr": "Régénération statique incrémentale",
+    "i18n": "Internationalisation",
+    "vercel": "Déploiement Vercel"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent"
+  }
+}
